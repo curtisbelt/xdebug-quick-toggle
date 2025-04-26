@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XDebug Quick Toggle</title>
+  <style>
+    /* define light‐mode defaults */
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --hover-bg: #eeeeee;
+    }
+
+    /* override for dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1e1e1e;
+        --fg: #eeeeee;
+        --hover-bg: #333333;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      width: auto;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    li:hover {
+      background: var(--hover-bg);
+    }
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+    .description {
+      opacity: 0.6;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li id="off"><img src="icons/bug-gray-16.png" alt="Off">Off</li>
+    <li id="debug"><img src="icons/bug-green-16.png" alt="Debug">Debug<span class="description">(XDEBUG_SESSION=1)</span></li>
+    <li id="profile"><img src="icons/bug-purple-16.png" alt="Profile">Profile<span class="description">(XDEBUG_PROFILE=1)</span></li>
+  </ul>
+  <script src="popup.js"></script>
+</body>
+</html>
